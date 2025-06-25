@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-imfo: 이벤트 캘린더</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 왼쪽 사이드바 -->
+        <div id="sidebar">
+            <h1>필터</h1>
+            <div id="categoryBtns" class="chapter-btns">
+                <button class="chapter-btn" data-category="anime">애니</button>
+                <button class="chapter-btn" data-category="game">게임</button>
+            </div>
+            <hr>
+            <h2>시리즈 목록</h2>
+            <input type="text" id="seriesSearch" placeholder="시리즈 검색...">
+            <div id="seriesContainer"></div>
+        </div>
+
+        <!-- 메인 컨텐츠: 캘린더 -->
+        <div id="main-content">
+            <div id="calendar-header">
+                <button id="prevMonth">&lt;</button>
+                <h2 id="currentMonth"></h2>
+                <button id="nextMonth">&gt;</button>
+            </div>
+            <div id="calendarGrid"></div>
+        </div>
+    </div>
+
+    <!-- 이벤트 상세 정보 모달 -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p><strong>날짜:</strong> <span id="modalDate"></span></p>
+            <p><strong>시리즈:</strong> <span id="modalCategory"></span></p>
+            <p><strong>설명:</strong></p>
+            <p id="modalDescription"></p>
+            <a id="modalLink" href="#" target="_blank" style="display: none;">공식 사이트 바로가기</a>
+        </div>
+    </div>
+
+    <!-- 이벤트 추가 모달 -->
+    <div id="addEventModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="addEventModalClose">&times;</span>
+            <h2>새 이벤트 추가</h2>
+            <form id="addEventForm">
+                <input type="hidden" id="eventDate" required>
+                <label for="eventSeries">시리즈:</label>
+                <select id="eventSeries" required>
+                    <option value="">시리즈를 선택하세요</option>
+                </select>
+                <label for="eventName">이벤트 이름:</label>
+                <input type="text" id="eventName" placeholder="예: 팝업 스토어 오픈" required>
+                <label for="eventDescription">설명:</label>
+                <textarea id="eventDescription" placeholder="이벤트에 대한 설명을 입력하세요."></textarea>
+                <label for="eventUrl">관련 링크:</label>
+                <input type="url" id="eventUrl" placeholder="https://example.com (선택 사항)">
+                <button type="submit">이벤트 추가</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="firebase-config.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html> 
