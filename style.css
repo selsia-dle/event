@@ -1,0 +1,290 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(120deg, #fffbe6 60%, #ffe6fa 100%);
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+}
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center-box {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 64px;
+  background: rgba(255,255,255,0.85);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+header h1 {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #ff7e5f;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0 0 0 0;
+  font-family: 'Segoe UI', 'Malgun Gothic', Arial, sans-serif;
+}
+.go-back-btn {
+  position: fixed;
+  top: 80px;
+  left: 24px;
+  z-index: 10000;
+  background: rgba(255,255,255,0.92);
+  border: 2px solid #ffb347;
+  color: #ff7e5f;
+  font-size: 1.15rem;
+  font-weight: bold;
+  border-radius: 18px;
+  padding: 0.5em 1.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+}
+.go-back-btn:hover {
+  background: #ffb347;
+  color: #fff;
+  border: 2px solid #ff7e5f;
+}
+#multiStepForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+.step {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+}
+#multiStepForm label {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: center;
+}
+#userName, #userAge {
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.2s;
+    width: 200px;
+    text-align: center;
+}
+#userName:focus, #userAge:focus {
+    border: 1.5px solid #4a90e2;
+}
+#toGender, #multiStepForm button[type="submit"] {
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+#toGender:hover, #multiStepForm button[type="submit"]:hover {
+    background: #357ab8;
+}
+.gender-select {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+}
+.gender-btn {
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.gender-btn.selected, .gender-btn:hover {
+    background: #4a90e2;
+    color: #fff;
+}
+
+/* 결과지 예쁜 디자인 */
+.pretty-result {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 420px;
+  background: linear-gradient(135deg, #fffbe6 60%, #ffe6fa 100%);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 32px 24px 48px 24px;
+  overflow: hidden;
+}
+.capture-img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.capture-img {
+  max-width: 220px;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  border: 4px solid #fff;
+}
+.result-label {
+  font-size: 2.1rem;
+  font-weight: bold;
+  margin: 18px 0 8px 0;
+  color: #ff7e5f;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.result-label span {
+  margin: 0 8px;
+  font-size: 2.2rem;
+  color: #333;
+}
+.result-text {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+.emoji-bubbles {
+  pointer-events: none;
+  position: absolute;
+  left: 0; right: 0; bottom: 0; top: 0;
+  width: 100%; height: 100%;
+  z-index: 2;
+  overflow: visible;
+}
+.bubble-emoji {
+  position: absolute;
+  bottom: 0;
+  opacity: 0.85;
+  animation: bubbleUp 3.5s cubic-bezier(.4,0,.2,1) forwards;
+  user-select: none;
+  will-change: transform, opacity;
+}
+@keyframes bubbleUp {
+  0% {
+    transform: translateY(0) scale(0.7) rotate(-10deg);
+    opacity: 0.7;
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-60%) scale(1.1) rotate(10deg);
+  }
+  100% {
+    transform: translateY(-340px) scale(1.2) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+/* 얼굴 윤곽선 가이드 오버레이 */
+#webcam-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+}
+.face-guide-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translate(-50%, -50%);
+  border: 4px dashed #ffb347;
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px rgba(255,255,255,0.18);
+  pointer-events: none;
+  z-index: 10;
+  background: rgba(255,255,255,0.04);
+  transition: border-color 0.3s;
+  animation: guidePulse 1.8s infinite;
+}
+@keyframes guidePulse {
+  0% { border-color: #ffb347; }
+  50% { border-color: #ff7e5f; }
+  100% { border-color: #ffb347; }
+}
+
+.restart-btn {
+  margin-top: 32px;
+  padding: 0.7em 2.2em;
+  background: linear-gradient(90deg, #ffb347 40%, #ff7e5f 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 2px 8px rgba(255,126,95,0.13);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.restart-btn:hover {
+  background: linear-gradient(90deg, #ff7e5f 40%, #ffb347 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.download-result-btn {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  padding: 0.7em 2.2em;
+  background: linear-gradient(90deg, #7ed957 40%, #3ec6e0 100%);
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 2px 8px rgba(62,198,224,0.13);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.download-result-btn:hover {
+  background: linear-gradient(90deg, #3ec6e0 40%, #7ed957 100%);
+  transform: translateY(-2px) scale(1.04);
+} 
